@@ -3,3 +3,8 @@
 22 05 1.22 shrad
 27 08 1.44 heavy rain
 30 11 1.77 heavy snow
+22 10 1.20 warm rain
+23 10 1.11 ice rain
+03 04 1.66 common rain
+18 09 1.33 snow
+01 09 1.99 heavy snow
