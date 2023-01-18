@@ -1,0 +1,5 @@
+21 01 1.01 snow
+13 03 1.02 rain
+22 05 1.22 shrad
+27 08 1.44 heavy rain
+30 11 1.77 heavy snow
