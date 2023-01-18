@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -19,11 +20,20 @@ int main()
     {
         read("data.txt", subscriptions, size);
         for (int i = 0; i < size; i++)
-        {
-            cout << subscriptions[i]->OurDay.day << ' ';
-            cout << subscriptions[i]->OurDay.month << '\n';
+        { 
+            /********** вывод даты осадков **********/
+            // вывод числа
+            cout << "Дата...: ";
+            cout << setw(2) << setfill('0') << subscriptions[i]->OurDay.day << ' ';
+            // вывод месяца
+            cout << setw(2) << setfill('0') << subscriptions[i]->OurDay.month << '\n';
+            /********** вывод количества осадков **********/
+            cout << "Количество осадков в мм...: ";
             cout << subscriptions[i]->OurVolume.volume << '\n';
+            /********** вывод типа осадков **********/
+            cout << "Тип осадков...: ";
             cout << subscriptions[i]->OurType.type << '\n';
+            cout << '\n';
             cout << '\n';
         }
         for (int i = 0; i < size; i++)
