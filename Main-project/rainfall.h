@@ -7,23 +7,24 @@ struct date
 {
     int day;
     int month;
-    double number;
+};
+
+struct volume_sub
+{
+    double volume;
 };
 
 struct type_sub
 {
     char type[MAX_STRING_SIZE];
-   
 };
 
-struct rainfall_subscription
+struct rainfall_sub
 {
-    
-    date day;
-    date month;
-    date number;
-    type_sub type;
-    char title[MAX_STRING_SIZE];
+    date OurDay;
+    volume_sub OurVolume;
+    type_sub OurType;
+   // char title[MAX_STRING_SIZE];
 };
 
 #endif
