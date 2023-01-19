@@ -1,24 +1,14 @@
-#include "filter.h"
-#include <cstring>
-#include <iostream>
+#include "processing.h"
 
-rainfall_sub** GGfilter(rainfall_sub* array[], int size, bool (*check)(rainfall_sub* element), int& result_size)
+
+
+int process(rainfall_sub* array[], int size, int b)
 {
-	rainfall_sub** result = new rainfall_sub * [size];
-	result_size = 0;
-	for (int i = 0; i < size; i++)
-	{
-		if (check(array[i]))
-		{
-			result[result_size++] = array[i];
+	int s = 0;
+	for (int i = 0; i < size; i++) {
+		if (array[i]->OurDay.month == b) {
+			s += array[i]->OurVolume.volume;
 		}
 	}
-	return result;
+	return s;
 }
-
-bool check_rainfall_sub_by_rain(rainfall_sub* element)
-{
-
-	return strstr(element->OurType.type, "rain") == 0;
-}
-
