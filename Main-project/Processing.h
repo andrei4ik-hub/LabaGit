@@ -3,6 +3,6 @@
 
 #include "rainfall.h"
 
-int process(rainfall_sub* array[], int size);
+int process(rainfall_sub* array[], int size, int b);
 
 #endif
