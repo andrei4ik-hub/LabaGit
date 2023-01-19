@@ -24,7 +24,5 @@ struct rainfall_sub
     date OurDay;
     volume_sub OurVolume;
     type_sub OurType;
-   // char title[MAX_STRING_SIZE];
 };
-
 #endif
