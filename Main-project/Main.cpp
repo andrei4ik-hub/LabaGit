@@ -18,7 +18,8 @@ void select() {
 }
 
 bool (*criterions[2])(rainfall_sub* left, rainfall_sub* right) = { volume_increasing, type_increasing }; // array of functions for sorts
-bool (*filters[2])(rainfall_sub* element) = {filter_by_volume, filter_by_type}; // array of functions for sorts
+//bool (*filters[2])(rainfall_sub* element) = {filter_by_volume, filter_by_type}; // array of functions for sorts
+
 
 void output(rainfall_sub* subscriptions) {
     /********** вывод даты осадков **********/
@@ -37,12 +38,21 @@ void output(rainfall_sub* subscriptions) {
     cout << '\n';
 };
 
+void gg(rainfall_sub* subscriptions[ ], int size, bool (*check)(rainfall_sub* element), int& result_size) {
+    rainfall_sub** filtered = filter(subscriptions, size, check, result_size);
+    for (int i = 0; i < result_size; i++)
+    {
+        output(filtered[i]);
+    }
+    delete[] filtered;
+}
+
 void output(rainfall_sub* subs[], int size) { // output
     for (int i = 0; i < size; ++i) {
-        cout << subs[i]->date.day << ' ';
-        cout << subs[i]->date.month << ' ';
-        cout << subs[i]->wind.direction << ' ';
-        cout << subs[i]->wind.speed << '\n';
+        cout << subs[i]->OurDay.day << ' ';
+        cout << subs[i]->OurDay.month << ' ';
+        cout << subs[i]->OurVolume.volume << ' ';
+        cout << subs[i]->OurType.type << ' \n'<< endl;
     }
 }
 int main()
@@ -62,9 +72,14 @@ int main()
             output(subscriptions[i]);
         }
 
-		bool (*check_function)(rainfall_sub*); 
-		
+		bool (*check_function)(rainfall_sub*)=0; 
 
+		int new_size;
+		
+	/*	for (int i = 0; i < new_size; i++)
+		{
+			output(filtered[i]);
+		}*/
         cout << "\n";
         cout << "1. Filter data" << endl;
         cout << "2. Sort data" << endl;
@@ -82,10 +97,12 @@ int main()
             case 1:
                 check_function = check_rainfall_sub_by_rain;
                 cout << "*****        *****\n\n";
+                gg(subscriptions, size, check_function, new_size);
                 break;
             case 2:
                 check_function = check_rainfall_sub_by_volume;
                 cout << "*****         *****\n\n";
+                gg(subscriptions, size, check_function, new_size);
                 break;
             }
         case 2: cout << "1. Shaker sort" << endl;
@@ -98,14 +115,14 @@ int main()
                 select();
                 switch (item) {
                 case 1:
-                    shaker_sort(rainfall_sub, size, criterions[0]);
+                    shaker_sort(subscriptions, size, criterions[0]);
                     cout << "Sorted:" << endl;
-                    output(rainfall_sub, size);
+                    output(subscriptions, size);
                     break;
                 case 2:
-                    shaker_sort(rainfall_sub, size, criterions[1]);
+                    shaker_sort(subscriptions, size, criterions[1]);
                     cout << "Sorted:" << endl;
-                    output(rainfall_sub, size);
+                    output(subscriptions, size);
                     break;
                 default:
                     cout << "Error";
@@ -117,14 +134,14 @@ int main()
                 select();
                 switch (item) {
                 case 1:
-                    merge_sort(rainfall_sub, 0, size - 1, criterions[0]);
+                    merge_sort(subscriptions, 0, size - 1, criterions[0]);
                     cout << "Sorted:" << endl;
-                    output(rainfall_sub, size);
+                    output(subscriptions, size);
                     break;
                 case 2:
-                    merge_sort(rainfall_sub, 0, size - 1, criterions[1]);
+                    merge_sort(subscriptions, 0, size - 1, criterions[1]);
                     cout << "Sorted:" << endl;
-                    output(rainfall_sub, size);
+                    output(subscriptions, size);
                     break;
                 default:
                     cout << "Error";
@@ -140,23 +157,19 @@ int main()
         default:
             cout << "Error";
         }
-		int new_size;
-		rainfall_sub** filtered = filter(subscriptions, size, check_function, new_size);
-		for (int i = 0; i < new_size; i++)
-		{
-			output(filtered[i]);
-		}
-		delete[] filtered;
-	}
-	
+
+      /*  rainfall_sub** filtered = filter(subscriptions, size, check_function, new_size);
+        for (int i = 0; i < new_size; i++)
+        {
+            output(filtered[i]);
+        }
+        delete[] filtered;*/
 
         for (int i = 0; i < size; i++)
         {
             delete subscriptions[i];
         }
-    }
-
-    catch (const char* error)
+    } catch (const char* error)
     {
         cout << error << '\n';
     }
