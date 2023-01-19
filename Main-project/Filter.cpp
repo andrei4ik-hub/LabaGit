@@ -19,7 +19,7 @@ rainfall_sub** filter(rainfall_sub* array[], int size, bool (*check)(rainfall_su
 bool check_rainfall_sub_by_rain(rainfall_sub* element)
 {
 
-	return strstr(element->OurType.type, "rain") == 0;
+	return strstr(element->OurType.type, "rain") != 0;
 }
 
 bool check_rainfall_sub_by_volume(rainfall_sub* element)
