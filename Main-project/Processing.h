@@ -1,8 +1,8 @@
 #ifndef PROCESSING_H
 #define PROCESSING_H
 
-#include "book_subscription.h"
+#include "rainfall.h"
 
-int process(book_subscription* array[], int size);
+int process(rainfall_sub* array[], int size);
 
 #endif
