@@ -32,6 +32,21 @@ bool type_increasing(rainfall_sub* left, rainfall_sub* right) {
 	else if (!strcmp(left->OurType.type, "Shrad")) {
 		leftNum = Shrad;
 	}
+	if (!strcmp(right->OurType.type, "Rain")) {
+		rightNum = Rain;
+	}
+	else if (!strcmp(right->OurType.type, " HeavyRain")) {
+		rightNum = HeavyRain;
+	}
+	else if (!strcmp(right->OurType.type, "Snow")) {
+		rightNum = Snow;
+	}
+	else if (!strcmp(right->OurType.type, "HeavySnow")) {
+		rightNum = HeavySnow;
+	}
+	else if (!strcmp(right->OurType.type, "Shrad")) {
+		rightNum = Shrad;
+	}
 	if (rightNum == leftNum) {
 		if (left->OurDay.month == right->OurDay.month) {
 			return left->OurDay.day > right->OurDay.day;

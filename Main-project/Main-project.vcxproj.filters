@@ -18,9 +18,15 @@
     <ClCompile Include="Filter.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Sort.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Filter.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Sort.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
