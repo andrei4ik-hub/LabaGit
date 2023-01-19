@@ -8,6 +8,7 @@ using namespace std;
 #include "const.h"
 #include "filter.h"
 #include "Sort.h"
+#include "processing.h"
 
 
 int item;

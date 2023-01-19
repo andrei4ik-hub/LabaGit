@@ -129,26 +129,20 @@
   <ItemGroup>
     <ClCompile Include="file_reader.cpp" />
     <ClCompile Include="Filter.cpp" />
-<<<<<<< HEAD
     <ClCompile Include="Process.cpp" />
-=======
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sort.cpp" />
->>>>>>> main
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Const.h" />
     <ClInclude Include="file_reader.h" />
     <ClInclude Include="Filter.h" />
-<<<<<<< HEAD
     <ClInclude Include="Processing.h" />
-=======
     <ClInclude Include="rainfall.h" />
     <ClInclude Include="Sort.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="data.txt" />
->>>>>>> main
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
