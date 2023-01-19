@@ -38,10 +38,6 @@ void read(const char* file_name, rainfall_sub* array[], int& size)
             file.getline(item->OurType.type, MAX_STRING_SIZE);
             array[size++] = item;
         }
-        file.close();
-    }
-    else
-    {
-        throw "Ошибка открытия файла";
+        file.closethrow "Ошибка открытия файла";
     }
 }
