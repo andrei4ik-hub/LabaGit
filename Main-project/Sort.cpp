@@ -11,6 +11,7 @@ using namespace std;
 bool volume_increasing(rainfall_sub* left, rainfall_sub* right) {
 	return left->OurVolume.volume < right->OurVolume.volume;
 }
+
 bool type_increasing(rainfall_sub* left, rainfall_sub* right) {
 	enum types {
 		Rain, HeavyRain, Snow, HeavySnow, Shrad
@@ -77,10 +78,10 @@ void shaker_sort(rainfall_sub* array[], int size, bool (*criteria)(rainfall_sub*
 void Merge(rainfall_sub* arr[], int first, int last, bool (*criteria)(rainfall_sub* left, rainfall_sub* right)) {
 	int middle, start, final, j;
 	rainfall_sub** mas = new rainfall_sub * [100];
-	middle = (first + last) / 2;  //вычисление среднего элемента
-	start = first;                //начало левой части
-	final = middle + 1;           //начало правой части
-	for (j = first; j <= last; j++)  //выполнять от начала до конца
+	middle = (first + last) / 2;	//вычисление среднего элемента
+	start = first;					//начало левой части
+	final = middle + 1;				//начало правой части
+	for (j = first; j <= last; j++) //выполнять от начала до конца
 		if ((start <= middle) && ((final > last) || criteria(arr[final], arr[start]))) {
 			mas[j] = arr[start];
 			start++;

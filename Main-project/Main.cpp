@@ -17,22 +17,17 @@ void select() {
     system("cls");
 }
 
-bool (*criterions[2])(rainfall_sub* left, rainfall_sub* right) = { volume_increasing, type_increasing }; // array of functions for sorts
-//bool (*filters[2])(rainfall_sub* element) = {filter_by_volume, filter_by_type}; // array of functions for sorts
+bool (*criterions[2])(rainfall_sub* left, rainfall_sub* right) = { volume_increasing, type_increasing }; 
+//bool (*filters[2])(rainfall_sub* element) = {filter_by_volume, filter_by_type};
 
 
 void output(rainfall_sub* subscriptions) {
-    /********** вывод даты осадков **********/
-    // вывод числа
-    cout << "Дата...: ";
+    cout << "Дата: ";
     cout << setw(2) << setfill('0') << subscriptions->OurDay.day << ' ';
-    // вывод месяца
     cout << setw(2) << setfill('0') << subscriptions->OurDay.month << '\n';
-    /********** вывод количества осадков **********/
-    cout << "Количество осадков в мм...: ";
+    cout << "Количество осадков в мм: ";
     cout << subscriptions->OurVolume.volume << '\n';
-    /********** вывод типа осадков **********/
-    cout << "Тип осадков...: ";
+    cout << "Тип осадков: ";
     cout << subscriptions->OurType.type << '\n';
     cout << '\n';
     cout << '\n';
@@ -47,7 +42,7 @@ void gg(rainfall_sub* subscriptions[ ], int size, bool (*check)(rainfall_sub* el
     delete[] filtered;
 }
 
-void output(rainfall_sub* subs[], int size) { // output
+void output(rainfall_sub* subs[], int size) {
     for (int i = 0; i < size; ++i) {
         cout << subs[i]->OurDay.day << ' ';
         cout << subs[i]->OurDay.month << ' ';
@@ -105,7 +100,8 @@ int main()
                 gg(subscriptions, size, check_function, new_size);
                 break;
             }
-        case 2: cout << "1. Shaker sort" << endl;
+        case 2: 
+            cout << "1. Shaker sort" << endl;
             cout << "2. Merge sort" << endl;
             select();
             switch (item) {
@@ -157,13 +153,6 @@ int main()
         default:
             cout << "Error";
         }
-
-      /*  rainfall_sub** filtered = filter(subscriptions, size, check_function, new_size);
-        for (int i = 0; i < new_size; i++)
-        {
-            output(filtered[i]);
-        }
-        delete[] filtered;*/
 
         for (int i = 0; i < size; i++)
         {
